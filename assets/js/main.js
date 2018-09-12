@@ -19,14 +19,24 @@ function registerUser(e) {
                 console.log(res.status)
                 resp
                     .then((data) => {
-                        document.getElementById('message').innerHTML = data.error;
+                        let message =`
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            ${data.error} try again.
+                        </div>`; 
+                        document.getElementById('message').innerHTML = message;
                     })
             
             }
             else{
             resp
                 .then((data) => {
-                    document.getElementById('message').innerHTML = data.success;
+                    let message = `
+                        <div class="alert success">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            <strong>Yahh</strong> ${data.success} go to login.
+                        </div>`;
+                    document.getElementById('message').innerHTML = message;
                 })}
         })
         
