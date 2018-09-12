@@ -16,15 +16,17 @@
                 <h1>WELCOME</h1>
                 <p>Please Signin into your account.</p>
                 <hr>
+                <form action="" id="login_user">
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email">
+                <input type="text" placeholder="Enter Email" name="email" id="user_email">
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw">
+                <input type="password" placeholder="Enter Password" name="psw" id="user_password">
                 <div class="clearfix">
-                    <a href="home.html">
+                    <!-- <a href="home.html"> -->
                         <button type="submit" class="signupbtn">Sign In</button>
-                    </a>
+                    <!-- </a> -->
                 </div>
+                </form>
                 <p>Don't have an account Sign up it's so easy.</p>
                 <div class="clearfix">
                     <a href="signup.html">
@@ -34,6 +36,7 @@
             </div>
         </div>
     </div>
+    <script src="assets/js/login.js"></script>
 </body>
 
 </html>
