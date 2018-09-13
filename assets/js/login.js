@@ -14,12 +14,22 @@ function loginUser(e){
             if(res.status == 200){
                 let result = res.json();
                 result
-                    .then((data) => console.log(data));
+                    .then((data) => {
+                        localStorage.setItem('token', data.token)
+                        window.location = 'home.html'
+                    })
             }
             else{
                 let result = res.text();
                 result
-                    .then((data) => console.log(data));
+                    .then((data) => {
+                        let message = `
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            ${data} try again.
+                        </div>`;
+                        document.getElementById('message').innerHTML = message;
+                    })
             }
         })
         
