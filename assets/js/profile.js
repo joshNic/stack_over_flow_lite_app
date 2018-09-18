@@ -22,8 +22,8 @@ fetch('http://127.0.0.1:5000/api/v2/user/questions', {
                     <p>${question.question_body}</p>
                     <small>5 mins ago</small>
                     <hr>
-                    <input type="submit" name="submit" value="edit">
-                    <input type="submit" name="submit" value="delete">
+                    <a href="editquestion.html?question_id=${question.question_id}"><input type="submit" name="submit" value="edit"></a>
+                    <input type="submit" name="submit" value="delete" onclick="deleteQuestion(${question.question_id});">
                     `;
             outPut2 += `
                     <hr>
@@ -31,7 +31,7 @@ fetch('http://127.0.0.1:5000/api/v2/user/questions', {
                     <p>${question.question_body}</p>
                     <small>${question.answer_count} answers</small>
                     <hr>
-                    <input type="submit" name="submit" value="edit">
+                    <a href="editquestion.html?question_id=${question.question_id}"><input type="submit" name="submit" value="edit"></a>
                     <input type="submit" name="submit" value="delete">
                     `;
         });
@@ -39,3 +39,46 @@ fetch('http://127.0.0.1:5000/api/v2/user/questions', {
         document.getElementById('question').innerHTML = outPut1;
         document.getElementById('activity').innerHTML = outPut2;
     })
+
+    // function deleteQuestion(id){
+    //     let url = 'http://127.0.0.1:5000/api/v2/question/'+id;
+    //     fetch(url, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-type': 'application/json',
+    //             'x-access-token': localStorage.getItem('token')
+    //         }
+    //     })
+    //         .then((res) => {
+    //             const resp = res.json();
+    //             if (res.status != 200) {
+    //                 console.log(res.status)
+    //                 resp
+    //                     .then((data) => {
+    //                         console.log(data.message);
+    //                     //     let message = `
+    //                     // <div class="alert">
+    //                     //     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    //                     //     ${data.message} try again.
+    //                     // </div>`;
+    //                     //     document.getElementById('message').innerHTML = message;
+    //                     })
+
+    //             }
+    //             else {
+    //                 resp
+    //                     .then((data) => {
+    //                         console.log(data.message);
+    //                     //     let message = `
+    //                     // <div class="alert success">
+    //                     //     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    //                     //     <strong>Yahh</strong> ${data.message}.
+    //                     // </div>`;
+    //                     //     document.getElementById('message').innerHTML = message;
+    //                     })
+    //             }
+    //         })
+
+    //         .catch((error) => console.log(error))
+    // }

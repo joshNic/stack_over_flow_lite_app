@@ -1,4 +1,3 @@
-
 let questionId = getUrlQuestionId()["question_id"];
 console.log(questionId);
 function getUrlQuestionId() {
@@ -8,44 +7,43 @@ function getUrlQuestionId() {
     });
     return urlVars;
 }
-
-url = 'http://127.0.0.1:5000/api/v2/question/'+questionId;
-answerUrl = 'http://127.0.0.1:5000/api/v2/question/'+questionId+'/answer';
+url = 'http://127.0.0.1:5000/api/v2/question/' + questionId;
 fetch(url)
     .then((res) => res.json())
     .then((data) => {
-        let output = `<h1>question</h1>
-                    <p>${data[0].question_title}?</p>
-                    <p>${data[0].question_body}?</p>
-                    <h1>Answers</h1>`;
-        data[0].answers.forEach(function (answer) {
-            output += `
-                    <hr>
-                    <p>${answer.answer_body}</p>
-                    <span><a href="#">Josh</a></span> <small>5 mins ago</small><small> Accepted: ${answer.answer_status}</small>
-                    <hr>
-                    `;
-        });
-        document.getElementById('answers').innerHTML = output;
+        let edit = `
+        <label for="question"><b>Title</b></label>
+                <input type="text" name="question" id="questionTitle" value="${data[0].question_title}?">
+                <label for="qbody"><b>Question Description</b></label>
+                <textarea rows="4" cols="50" id="questionBody">
+                    ${data[0].question_body}
+                </textarea>
+                <div class="clearfix">
+                    <button type="submit" class="signupbtn">Update Question</button></a>
+                </div>
+        `;
+        document.getElementById('edit').innerHTML = edit;
     })
 
-document.getElementById('postAnswer').addEventListener('submit', postAnswer);
 
-function postAnswer(e) {
+document.getElementById('edit').addEventListener('submit', editQuestion);
+
+function editQuestion(e) {
     e.preventDefault();
-    let answerBody = document.getElementById('answerBoby').value;
-    fetch(answerUrl, {
-        method: 'POST',
+    let questionTitle = document.getElementById('questionTitle').value;
+    let questionBody = document.getElementById('questionBody').value;
+    fetch(url, {
+        method: 'PUT',
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-type': 'application/json',
             'x-access-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({answer_body: answerBody })
+        body: JSON.stringify({ question_title: questionTitle, question_body: questionBody })
     })
         .then((res) => {
             const resp = res.json();
-            if (res.status != 201) {
+            if (res.status != 200) {
                 console.log(res.status)
                 resp
                     .then((data) => {
@@ -66,9 +64,7 @@ function postAnswer(e) {
                             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                             <strong>Yahh</strong> ${data.message}.
                         </div>`;
-                        
                         document.getElementById('message').innerHTML = message;
-                        setTimeout(function () { document.location.reload(true); }, 1000);
                     })
             }
         })
