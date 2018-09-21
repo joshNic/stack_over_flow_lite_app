@@ -1,4 +1,11 @@
 
+document.getElementById('logOut').addEventListener('click', logOut);
+function logOut(){
+    localStorage.removeItem('token');
+    window.location = 'index.html';
+}
+
+
 fetch('http://127.0.0.1:5000/api/v2/user/questions', {
     method: 'GET',
     headers: {
@@ -20,7 +27,6 @@ fetch('http://127.0.0.1:5000/api/v2/user/questions', {
                     <hr>
                     <p><a href="viewquestion.html?question_id=${question.question_id}">${question.question_title}?</a></p>
                     <p>${question.question_body}</p>
-                    <small>5 mins ago</small>
                     <hr>
                     <a href="editquestion.html?question_id=${question.question_id}"><input type="submit" name="submit" value="edit"></a>
                     <input type="submit" name="submit" value="delete" onclick="deleteQuestion(${question.question_id});">
