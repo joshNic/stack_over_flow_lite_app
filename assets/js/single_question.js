@@ -22,7 +22,7 @@ fetch(url)
             output += `
                     <hr>
                     <p>${answer.answer_body}</p>
-                    <span><a href="#">Josh</a></span> <small>5 mins ago</small><small> Accepted: ${answer.answer_status}</small>
+                    <span><a href="#">By: ${answer.answer_author}</a></span> <small>On:  ${answer.answer_date}</small><small> Accepted: ${answer.answer_status}</small>
                     <a href="editanswer.html?answer_id=${answer.answer_id}&question_id=${questionId}"><input type="submit" name="submit" value="edit"></a>
                     `;
         });
@@ -68,7 +68,7 @@ function postAnswer(e) {
                         </div>`;
                         
                         document.getElementById('message').innerHTML = message;
-                        setTimeout(function () { document.location.reload(true); }, 1000);
+                        setTimeout(function () { document.location.reload(true); }, 2000);
                     })
             }
         })

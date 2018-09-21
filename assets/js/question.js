@@ -26,6 +26,7 @@ function postQuestion(e) {
                             ${data.message} try again.
                         </div>`;
                         document.getElementById('message').innerHTML = message;
+                        setTimeout(function () { document.location.reload(true); }, 2000);
                     })
 
             }
@@ -38,6 +39,7 @@ function postQuestion(e) {
                             <strong>Yahh</strong> ${data.message}.
                         </div>`;
                         document.getElementById('message').innerHTML = message;
+                        setTimeout(function () { document.location.reload(true); }, 2000);
                     })
             }
         })

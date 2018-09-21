@@ -52,6 +52,7 @@ function editAnswer(e) {
                             ${data.message} try again.
                         </div>`;
                         document.getElementById('message').innerHTML = message;
+                        setTimeout(function () { document.location.reload(true); }, 2000);
                     })
 
             }
@@ -64,6 +65,7 @@ function editAnswer(e) {
                             <strong>Yahh</strong> ${data.message}.
                         </div>`;
                         document.getElementById('message').innerHTML = message;
+                        setTimeout(function () { document.location.reload(true); }, 2000);
                     })
             }
         })

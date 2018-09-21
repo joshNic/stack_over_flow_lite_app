@@ -25,6 +25,7 @@ function registerUser(e) {
                             ${data.error} try again.
                         </div>`; 
                         document.getElementById('message').innerHTML = message;
+                        setTimeout(function () { document.location.reload(true); }, 2000);
                     })
             
             }
@@ -37,6 +38,7 @@ function registerUser(e) {
                             <strong>Yahh</strong> ${data.success} go to login.
                         </div>`;
                     document.getElementById('message').innerHTML = message;
+                    setTimeout(function () { document.location.reload(true); }, 2000);
                 })}
         })
         

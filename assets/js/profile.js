@@ -63,6 +63,7 @@ fetch('http://127.0.0.1:5000/api/v2/user/questions', {
                             ${data.message} try again.
                         </div>`;
                             document.getElementById('message').innerHTML = message;
+                            setTimeout(function () { document.location.reload(true); }, 2000);
                         })
 
                     
@@ -71,12 +72,13 @@ fetch('http://127.0.0.1:5000/api/v2/user/questions', {
                     resp
                         .then((data) => {
                             console.log(data.message);
-                        //     let message = `
-                        // <div class="alert success">
-                        //     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                        //     <strong>Yahh</strong> ${data.message}.
-                        // </div>`;
-                        //     document.getElementById('message').innerHTML = message;
+                            let message = `
+                        <div class="alert success">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            <strong>Yahh</strong> ${data.message}.
+                        </div>`;
+                            document.getElementById('message').innerHTML = message;
+                            setTimeout(function () { document.location.reload(true); }, 2000);
                         })
                 }
             })

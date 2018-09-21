@@ -29,6 +29,7 @@ function loginUser(e){
                             ${data} try again.
                         </div>`;
                         document.getElementById('message').innerHTML = message;
+                        setTimeout(function () { document.location.reload(true); }, 2000);
                     })
             }
         })
