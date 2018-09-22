@@ -2,11 +2,11 @@
 document.getElementById('logOut').addEventListener('click', logOut);
 function logOut(){
     localStorage.removeItem('token');
-    window.location = 'index.html';
+    window.location = 'ind.html';
 }
 
 
-fetch('http://127.0.0.1:5000/api/v2/user/questions', {
+fetch('https://stackoverflow-v2.herokuapp.com/api/v2/user/questions', {
     method: 'GET',
     headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -47,7 +47,7 @@ fetch('http://127.0.0.1:5000/api/v2/user/questions', {
     })
 
     function deleteQuestion(id){
-        let url = 'http://127.0.0.1:5000/api/v2/question/'+id;
+        let url = 'https://stackoverflow-v2.herokuapp.com/api/v2/question/'+id;
         fetch(url, {
             method: 'DELETE',
             headers: {

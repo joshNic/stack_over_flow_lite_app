@@ -7,7 +7,7 @@ function getUrlQuestionId() {
     });
     return urlVars;
 }
-url = 'http://127.0.0.1:5000/api/v2/question/' + questionId;
+url = 'https://stackoverflow-v2.herokuapp.com/api/v2/question/' + questionId;
 fetch(url)
     .then((res) => res.json())
     .then((data) => {

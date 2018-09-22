@@ -5,7 +5,7 @@ function registerUser(e) {
     e.preventDefault();
     let user_email = document.getElementById('user_email').value;
     let user_password = document.getElementById('user_password').value;
-    fetch('http://127.0.0.1:5000/api/v2/auth/signup', {
+    fetch('https://stackoverflow-v2.herokuapp.com/api/v2/auth/signup', {
         method:'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -35,10 +35,10 @@ function registerUser(e) {
                     let message = `
                         <div class="alert success">
                             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                            <strong>Yahh</strong> ${data.success} go to login.
+                            <strong>Yahh</strong> ${data.success} redirecting to login.
                         </div>`;
                     document.getElementById('message').innerHTML = message;
-                    setTimeout(function () { document.location.reload(true); }, 2000);
+                    setTimeout(function () { window.location = 'ind.html'; }, 2000);
                 })}
         })
         

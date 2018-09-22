@@ -5,7 +5,7 @@ function postQuestion(e) {
     e.preventDefault();
     let questionTitle = document.getElementById('questionTitle').value;
     let questionBody = document.getElementById('questionBody').value;
-    fetch('http://127.0.0.1:5000/api/v2/question', {
+    fetch('https://stackoverflow-v2.herokuapp.com/api/v2/question', {
         method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',

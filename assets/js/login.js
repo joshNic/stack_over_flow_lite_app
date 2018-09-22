@@ -6,7 +6,7 @@ function loginUser(e){
     let user_password = document.getElementById('user_password').value;
     let headers = new Headers();
     headers.set('Authorization', 'Basic ' + window.btoa(user_email + ":" + user_password));
-    fetch('http://127.0.0.1:5000/api/v2/auth/login', {
+    fetch('https://stackoverflow-v2.herokuapp.com/api/v2/auth/login', {
         method: 'GET',
         headers: headers
     })

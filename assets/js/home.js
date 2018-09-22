@@ -1,5 +1,5 @@
 
-fetch('http://127.0.0.1:5000/api/v2/questions')
+fetch('https://stackoverflow-v2.herokuapp.com/api/v2/questions')
     .then((res) => res.json())
     .then((data) => {
         let output = '<h1>Recent Questions</h1>';
