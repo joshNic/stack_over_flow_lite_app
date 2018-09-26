@@ -38,7 +38,7 @@ fetch('https://stackoverflow-v2.herokuapp.com/api/v2/profile', {
                     <small>${question.answer_count} answers</small>
                     <hr>
                     <a href="editquestion.html?question_id=${question.question_id}"><input type="submit" name="submit" value="edit"></a>
-                    <input type="submit" name="submit" value="delete">
+                    <input type="submit" name="submit" value="delete" onclick="deleteQuestion(${question.question_id});">
                     `;
         });
         document.getElementById('user').innerHTML = output;
