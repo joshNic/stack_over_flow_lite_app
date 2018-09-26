@@ -65,7 +65,7 @@ function editAnswer(e) {
                             <strong>Yahh</strong> ${data.message}.
                         </div>`;
                         document.getElementById('message').innerHTML = message;
-                        setTimeout(function () { window.location = url; }, 2000);
+                        setTimeout(function () { window.location = 'profile.html'; }, 2000);
                     })
             }
         })
