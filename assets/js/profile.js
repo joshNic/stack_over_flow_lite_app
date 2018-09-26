@@ -6,7 +6,7 @@ function logOut(){
 }
 
 
-fetch('https://stackoverflow-v2.herokuapp.com/api/v2/user/questions', {
+fetch('https://stackoverflow-v2.herokuapp.com/api/v2/profile', {
     method: 'GET',
     headers: {
         'Accept': 'application/json, text/plain, */*',
